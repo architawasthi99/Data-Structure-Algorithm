@@ -1,0 +1,29 @@
+#include<stdio.h>
+int main(){
+    int arr[100],n,i,pos,val;
+    printf("enter the ize of the array: ");
+    scanf("%d",&n);
+    printf("\nenter the array elements: ");
+    for(i=0;i<n;i++){
+        printf("\nenter the element %d: ",i+1);
+        scanf("%d",&arr[i]);
+    }
+    printf("\nYour Initial Array Is :-");
+    for(i=0;i<n;i++){
+        printf("\n%d",arr[i]);
+    }
+    printf("\nenter the value you want to insert : ");
+    scanf("%d",&val);
+    printf("enter the position: ");
+    scanf("%d",&pos);
+    for(i=n-1;i>=pos-1;i--){
+        arr[i+1]=arr[i];
+    }
+    arr[pos-1]=val;
+    n++;
+    printf("Updated Array:-");
+    for(i=0;i<n;i++){
+        printf("\n%d",arr[i]);
+    }
+    return 0;
+}
