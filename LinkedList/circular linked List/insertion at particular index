@@ -19,11 +19,10 @@ struct node *insert_between(struct node *head,int data,int index){
     struct node *q=head->next;
     int i=0;
     int j=0;
-    while(i<index-1 && j==index){
+    while(i<index-1 && p->next!=head){
         p=p->next;
         q=q->next;
         i++;
-        j++;
     }
     p->next=ptr;
     ptr->next=q;
@@ -55,7 +54,7 @@ int main(){
     
     traversal(head);
     printf("\n");
-    head=insert_between(head,78,2);
+    head=insert_between(head,78,1);
     traversal(head);
     return 0;
     
