@@ -1,0 +1,39 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define size 10
+struct stack{
+    int top;
+    int arr[size];
+};
+void initialized(struct stack *sptr){
+    sptr->top=-1;
+}
+int push(struct stack *sptr,int value){
+    if(sptr->top==size-1){
+        return 0;
+    }
+    else{
+        sptr->top++;
+        sptr->arr[sptr->top]=value;
+        return 1;
+    }
+}
+void printstack(struct stack *sptr){
+    if(sptr->top== -1){
+        printf("stack is empty");
+    }
+    else{
+        for(int i=sptr->top;i>=0;i--){
+            printf("%d\n",sptr->arr[i]);
+        }
+    }
+}
+int main(){
+    struct stack s1;
+    initialized(&s1);
+    push(&s1, 10);
+    push(&s1, 20);
+    push(&s1, 30);
+    printstack(&s1);
+    return 0;
+}
