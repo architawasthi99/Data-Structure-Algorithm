@@ -10,32 +10,37 @@ void initialized(struct queue *qptr){
     qptr->front=-1;
     qptr->rear=-1;
 }
-int enqueue(struct queue *qptr,int value){
+int enqueue(struct queue *qptr,int data){
     if(qptr->rear==size-1){
         return 0;
     }
     else{
-        if(qptr->front==-1){
-            qptr->front=0;
+        if(qptr->rear==-1){
+            qptr->front =0;
         }
         qptr->rear++;
-        qptr->arr[qptr->rear]=value;
+        qptr->arr[qptr->rear]=data;
         return 1;
     }
 }
 int dequeue(struct queue *qptr){
     int a=-1;
-    if(qptr->front==qptr->rear){
-        return 0;
+    if(qptr->front==-1){
+        printf("queue is empty");
+    }
+    else if(qptr->front==qptr->rear){
+        a=qptr->arr[qptr->front];
+        qptr->front--;
+        qptr->rear--;
     }
     else{
+        a=qptr->arr[qptr->front];
         qptr->front++;
-         a=qptr->arr[qptr->front];
     }
     return a;
 }
 void printqueue(struct queue *qptr){
-    if(qptr->front==qptr->rear){
+    if(qptr->rear==-1){
         printf("queue is empty");
     }
     else{
@@ -45,19 +50,19 @@ void printqueue(struct queue *qptr){
     }
 }
 int main(){
-    struct queue s1;
-    initialized(&s1);
-    enqueue(&s1,22);
-    enqueue(&s1,23);
-    enqueue(&s1,24);
-    enqueue(&s1,25);
-    enqueue(&s1,26);
-    printqueue(&s1);
+    struct queue q1;
+    initialized(&q1);
+    enqueue(&q1,22);
+    enqueue(&q1,23);
+    enqueue(&q1,24);
+    enqueue(&q1,25);
+    enqueue(&q1,26);
+    printqueue(&q1);
     printf("\n");
-    dequeue(&s1);
-    dequeue(&s1);
-    dequeue(&s1);
-    printqueue(&s1);
+    dequeue(&q1);
+    dequeue(&q1);
+    dequeue(&q1);
+    printqueue(&q1);
+    return 0;
     
-return 0;
 }
