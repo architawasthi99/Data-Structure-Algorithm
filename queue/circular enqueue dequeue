@@ -35,7 +35,7 @@ void printqueue(struct queue *cptr){
         printf("empty");
     }
     else{
-        for(int i=cptr->front;i<=cptr->rear;i++){
+        for(int i = (cptr->front + 1) % size; i < (cptr->rear + 1) % size; i = (i + 1) % size){
             printf("%d\t",cptr->arr[i]);
         }
     }
@@ -48,6 +48,9 @@ int main(){
     enqueue(&s1,14);
     enqueue(&s1,15);
     enqueue(&s1,16);
+    printqueue(&s1);
+    dequeue(&s1);
+    printf("\n");
     printqueue(&s1);
     return 0;
     
