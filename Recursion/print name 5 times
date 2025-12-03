@@ -1,0 +1,15 @@
+#include<iostream>
+using namespace std;
+int count=1;
+void name(){
+    if(count==6){
+        return;
+    }
+    cout<<"archit"<<" ";
+    count++;
+    name();
+}
+int main(){
+    name();
+    return 0;
+}
