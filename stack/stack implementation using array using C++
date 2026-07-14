@@ -1,0 +1,52 @@
+#include <iostream>
+using namespace std;
+class mystack{
+    int *arr;
+    int top;
+    int capacity;
+public:
+    mystack(int cap){
+        capacity=cap;
+        arr=new int[capacity];
+        top=-1;
+    }
+    void push(int val){
+        if(top==capacity-1){
+            cout<<"stack is full"<<endl;
+            return;
+        }
+        arr[++top]=val;
+    }
+    int pop(){
+        if(top==-1){
+            cout<<"stack is empty"<<endl;
+            return -1;
+        }
+        return arr[top--];
+    }
+    int peek(){
+        if(top==-1){
+            cout<<"stack empty"<<endl;
+            return -1;
+        }
+        return arr[top];
+    }
+    bool isempty(){
+        return top==-1;
+    }
+    bool isfull(){
+        return top==capacity-1;
+    }
+};
+int main(){
+    mystack s(10);
+    s.push(5);
+    s.push(20);
+    s.push(40);
+    s.push(60);
+    while(!s.isempty()){
+        cout<<s.peek()<<" ";
+        s.pop();
+    }
+    return 0;
+}
