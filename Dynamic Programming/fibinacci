@@ -1,0 +1,18 @@
+#include <iostream>
+#include<vector>
+using namespace std;
+int fiboDP( int n,vector<int>&arr){
+    if(n<=1){
+        return n;
+    }
+    if(arr[n]!=-1){
+        return arr[n];
+    }
+    return arr[n]=fiboDP(n-1,arr)+fiboDP(n-2,arr);
+}
+int main(){
+    int n=8;
+    vector<int>arr(n+1,-1);
+    cout<<fiboDP(n,arr)<<endl;
+    return 0;
+}
